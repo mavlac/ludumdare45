@@ -13,8 +13,8 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
+  - Locator
+  - Draggable
   - 
   - 
   - 
@@ -38,6 +38,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: RoomArea
+    uniqueID: 3538120839
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
