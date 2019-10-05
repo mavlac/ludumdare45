@@ -60,13 +60,15 @@ public class Draggable : MonoBehaviour
 	}
 	void Update()
 	{
+		float currentPositionY = transform.position.y;
+
 		if (dragged)
 		{
 			Vector3 cursorScreenPoint = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0);
 			Vector3 cursorPosition = mainCamera.ScreenToWorldPoint(cursorScreenPoint);
 
 			desiredPosition = cursorPosition + dragHandleOffset;
-			desiredPosition.y = 0;
+			desiredPosition.y = currentPositionY;
 			
 			if (dragController.limitDragWithinArea)
 			{
