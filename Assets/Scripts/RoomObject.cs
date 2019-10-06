@@ -12,6 +12,12 @@ public class RoomObject : MonoBehaviour
 	[ReadOnly]
 	public bool pivotOnHalfZ;
 
+	[Space]
+	public AudioClip onMouseDownSound;
+
+	const float defaultElevation = 0f;
+	const float pickupElevation = 0f;
+
 	Vector3 dragPickupPos;
 	Quaternion turnAttemptRot;
 
@@ -42,6 +48,11 @@ public class RoomObject : MonoBehaviour
 		if (other.CompareTag(gameObject.tag))
 			invalidDraggedPos = false;
 	}
+	private void OnMouseDown()
+	{
+		if (onMouseDownSound)
+			LD45.Game.instance.PlayAudio(onMouseDownSound);
+	}
 
 
 
@@ -53,9 +64,14 @@ public class RoomObject : MonoBehaviour
 		dragPickupPos = transform.position;
 		turnAttemptRot = transform.rotation;
 		invalidDraggedPos = false;
+
+		transform.Translate(Vector3.up * pickupElevation, Space.World);
 	}
 	public void ParkOnGrid()
 	{
+		// reset pickup elevation
+		transform.position = new Vector3(transform.position.x, defaultElevation, transform.position.z);
+		
 		// dragged to wrong position - park back, rotate back too
 		if (invalidDraggedPos)
 		{
@@ -109,7 +125,9 @@ public class RoomObject : MonoBehaviour
 			yield return null;
 		}
 		transform.position = targetPosition;
-		
+
+
+		LD45.Game.instance.CheckCurrentRoomCompletition();
 		parking = false;
 	}
 
