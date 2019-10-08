@@ -5993,8 +5993,8 @@ MonoBehaviour:
   layer: 9
   rayDistance: Infinity
   audioSrc: {fileID: 746571511}
-  dragBeginSound: {fileID: 0}
-  dragEndSound: {fileID: 0}
+  dragBeginSound: {fileID: 8300000, guid: f09bca43b5d4a606081493e9103af972, type: 3}
+  dragEndSound: {fileID: 8300000, guid: c320aa67729989445b1edf0104fc0aac, type: 3}
   draggedObject: {fileID: 0}
 --- !u!4 &746571510
 Transform:
@@ -6022,7 +6022,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -8776,7 +8776,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0
